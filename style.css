@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: radial-gradient(ellipse at bottom, #0b1725 0%, #000000 100%);
+  height: 100vh;
+  width: 100vw;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  position: relative;
+  color: white;
+}
+
+/* Textos */
+.dedicatoria {
+  position: absolute;
+  top: 15px;
+  font-size: 1.5em;
+  text-shadow: 0 0 8px rgba(255,255,255,0.3);
+  user-select: none;
+  z-index: 10;
+}
+
+.izquierda {
+  left: 25px;
+}
+
+.derecha {
+  right: 25px;
+  font-style: italic;
+}
+
+.anii {
+  color: gold;
+  font-weight: bold;
+}
+
+.end {
+  color: violet;
+  font-weight: bold;
+}
+
+.firma {
+  position: absolute;
+  bottom: 8px;
+  right: 15px;
+  font-size: 0.7em;
+  opacity: 0.08;
+  font-style: italic;
+  user-select: none;
+}
+
+/* Canvas principal */
+canvas {
+  display: block;
+}
+
+/* --- NUBES --- */
+.nube {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: 50%;
+  filter: blur(25px);
+  animation: moverNube 90s linear infinite;
+  z-index: 1;
+}
+
+.nube::before,
+.nube::after {
+  content: "";
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+
+.nube::before {
+  width: 150%;
+  height: 120%;
+  top: -30%;
+  left: -40%;
+}
+
+.nube::after {
+  width: 180%;
+  height: 100%;
+  top: -10%;
+  left: 30%;
+}
+
+@keyframes moverNube {
+  0% { transform: translateX(-300px); opacity: 0.8; }
+  50% { opacity: 0.9; }
+  100% { transform: translateX(110vw); opacity: 0.8; }
+}
+
+/* --- ESTRELLAS PARPADEANTES --- */
+@keyframes parpadeo {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.2; }
+}
+
+.estrella {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  animation: parpadeo 3s infinite ease-in-out;
+  z-index: 0;
+}
+
+/* --- LUNA --- */
+.luna {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle at 30% 30%, #f0f0f0, #dcdcdc 70%, #aaaaaa 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 40px rgba(255, 255, 200, 0.6);
+  filter: blur(0.5px);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+  z-index: 2;
+}
